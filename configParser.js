@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const glob = require("glob");
+ glob = require("glob");
 const path = require("path");
 const exitCodes_1 = require("./exitCodes");
 const logger_1 = require("./logger");
