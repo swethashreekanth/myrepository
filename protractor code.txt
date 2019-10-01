@@ -1,0 +1,215 @@
+import { browser } from "protractor";
+
+// import { $ } from "protractor";
+
+// describe('Protractor Demo App', function() {
+    // it('should have a title', function() {
+      // browser.get('http://juliemr.github.io/protractor-demo/');
+  
+      // expect(browser.getTitle()).toEqual('Super Calculator');
+     // element(by.type='text').sendkeys('swetha 333333333');
+     // element(by.model='first').sendKeys('5');
+     // element(by.css('input-small ng-pristine ng-valid ng-touched'));
+     // $('input-small ng-pristine ng-valid ng-touched');
+   // });
+//});
+    describe('Protractor Demo App', function() {
+    var firstNumber = element(by.model=('first'));
+    var secondNumber = element(by.model=('second'));
+    var gobutton = element(by.id=('gobutton'));
+    var latestResult = element(by.binding=('latest'));
+
+    beforeEach(function(){
+browser.get('http://juliemr.github.io/protractor-demo/');
+    });
+    it('should have a title',function()
+    {
+expect(browser.getTitle().toEqual('Super Calculator'));
+    });
+    it('should add one and two functions',function()
+    {
+        firstNumber=('3');
+        secondNumber=('5');
+        gobutton.click();
+
+       expect(latestResult.gettext().toEqual('8'));
+    });
+    browser.sleep(2000000).then(
+        function(){
+           console.log("Waiting");
+        }
+      )
+    it('should add four and six', function() {
+        // Fill this in.
+        expect(latestResult.getText()).toEqual('10');
+      });
+    
+      it('should read the value from an input', function() {
+        firstNumber.sendKeys(1);
+        expect(firstNumber.getAttribute('value')).toEqual('1');
+        webdriver.WebDriver.refresh
+      });
+    });
+--------------------------------------------------------------------------------------------------------------------------
+
+import { browser, element, by } from "protractor";
+
+describe('Login to cooey', function(){
+
+    it('Testing login',function(){
+    
+         browser.get('https://test.portal.cooey.co.in/login');
+         var email= element(by.id('name'));
+         var password= element(by.type('password'));
+         var button= element(by.className('login-button ant-btn ant-btn-primary ant-btn-round'));
+
+        it('enter the values',function(){
+              email.sendKeys('test@cooey.co.in');
+              password.sendKeys('test1234!');
+              button.click();
+
+
+         });   
+    });
+        element(by.partialLinkText=('Leads')).click();
+        element(by.className('ant-btn ant-btn-primary')).click();
+        element(by.xpath('//*[@placeholder="First Name"]')).sendKeys('swetha');
+        element(by.xpath('//*[@placeholder="Last Name"]')).sendKeys('sree');
+        element(by.xpath('//*[@placeholder="Email"]')).sendKeys('psriku@gmail.com');
+        element(by.xpath('//*[@placeholder="Contact"]')).sendKeys('+919008264333');
+        element(by.xpath('//*[@placeholder="Source"]')).sendKeys('Hi');
+        element(by.xpath('//*[@placeholder="Domain"]')).sendKeys('Hello');
+        element(by.xpath('//*[@placeholder="Insurance Carrier"]')).sendKeys('How are you');
+        element(by.xpath('//*[@placeholder="Referred By"]')).sendKeys('Sandhya');
+        element(by.xpath('//*[@placeholder="Referred To"]')).sendKeys('DG');
+        element(by.xpath('//*[@placeholder="Referrel Reason"]')).sendKeys('Take care');
+        element(by.id('saveLead')).click();
+        
+        it('mouse hover', function() {
+            //handling mouse actions
+            var mousehover= element(by.partialLinkText('#Careplans'));
+            browser.actions().mouseMove(mousehover).perform();
+            browser.sleep(4000);
+            element(by.xpath('//*["@href=/careplan-templates"]'));
+
+        });
+        element(by.className=('ant-btn ant-btn-primary')).click();
+        // using href in xpath
+        element(by.xpath('//*[@href="/dashboard"]')).click();
+        element(by.partialLinkText=('Groups')).click();
+        element(by.className('ant-btn ant-btn-primary')).click();
+        // handling dropdown and choosing first option
+        element.all(by.className('mat-select-arrow')).get(0).click();
+        element(by.xpath('//*[@placeholder="Search"]')).sendKeys('swe');
+        element(by.className('ant-btn ant-btn-primary ant-btn-icon-only ant-input-search-button ng-star-inserted')).click();
+               
+
+});
+------------------------------------------------------------------------------------------------------------------------------------
+exports.config = {
+    seleniumAddress= 'http://localhost:4444/wd/hub',
+    specs: ['Loginjs']
+}
+-------------------------------------------------------------------------------------------------------------------------------
+import { element, browser } from "protractor";
+
+describe('Login to cooey', function(){
+
+    it('Testing login',function(){
+    
+         browser.get('https://test.portal.cooey.co.in/login');
+         var email= element(by.id('name'));
+         var password= element(by.type('password'));
+         var button= element(by.className('login-button ant-btn ant-btn-primary ant-btn-round'));
+
+           it('enter the values', function()
+           {
+              email.sendKeys('test@cooey.co.in');
+              password.sendKeys('test1234!');
+              button.click();
+           }); 
+        browser.actions().mouseMoveelement(by.className('anticon anticon-safety-certificate')).perform();
+        browser.actions().mouseMove(element(by.xpath('//*[@href="/careplan-templates"]')).perform().click());
+        element(by.className('ant-btn ant-btn-primary')).click();
+            it('Add care plan', function()
+            {
+               var name= element(by.xpath('//*[@placeholder="Name"]'));
+               var desc= element(by.xpath('//*[@placeholder="Description"]'));
+               var days= element(by.xpath('//*[@placeholder="No of days"]'));
+               var check= element(by.className('ant-checkbox-input ng-pristine ng-valid ng-touched'));
+               var careplanType= element.all(by.className('ng-tns-c50-76')).get(0);
+               var tags= element.all(by.className('anticon ant-select-arrow-icon ng-tns-c50-77 anticon-down ng-star-inserted')).get(1);
+               var save= element(by.className('ant-btn ant-btn-primary ng-star-inserted')).get(0);
+               var addGroup= element(by.className('ant-btn ant-btn-primary ng-star-inserted')).get(1);
+               var group= element(by.xpath('//*[@placeholder="New Group Name"]'));
+               var ok= element(by.className('ant-btn ng-star-inserted ant-btn-primary'));
+               
+               var dashboard= element(by.xpath('//*[@href="/dashboard"]'));
+               var careTakers= element(by.xpath('//*[text()="Caretakers"]'));
+               var add= element(by.className(by.className('ant-btn ant-btn-primary')));
+               var firstName= element(by.name('caretaker-first-name'));
+               var lastName= element(by.name('caretaker-last-name'));
+               var userName= element(by.name('caretaker-username'));
+               var password= element(by.name('caretaker-password'));
+               var decrypt= element(by.type('eye'));
+               var email= element(by.name('caretaker-email'));
+               var gender= element(by.xpath('//*[text()="Female"]'));
+               var timeZone= element.all(by.className('ng-tns-c50-178'));
+               var chooseTimezone= element(by.className('ant-select-dropdown-menu-item ng-star-inserted'));
+               var createCaretaker= element(by.className('ant-btn ant-btn-primary'));
+               var search= element(by.xpath('//*[@placeholder="Search"]'));
+               var click= element(by.className('ant-btn ant-btn-primary ant-btn-icon-only ant-input-search-button ng-star-inserted'));
+            });
+            it('careplan details', function()
+            {
+                name.sendKeys('Swetha');
+                desc.sendKeys('Hi Hello How are you');
+                days.sendKeys(3);
+                check.click();
+                careplanType.click();
+                tags.click();
+                browser.actions().sendKeys(protractor.Key.ESCAPE).perform();
+                // To click on escape key in keyboard.
+                // browser.actions().sendKeys(protractor.Key.SPACE).perform();
+                // To click on 'Space' key in the keyboard.
+
+                save.click();
+            });
+            browser.sleep(5000);        
+            it('Add care plan details', function()
+            {
+                name.sendKeys('Geetha');
+                desc.sendKeys('Hi Hello How are you doing');
+                days.sendKeys(4);
+                check.click();
+                careplanType.click();
+                tags.click();
+                save.click();
+            });
+            it('Add group', function()
+            {
+                addGroup.click();
+                group.sendKeys('Our Group');
+                ok.click();
+                dashboard.click();
+            });
+            it('Add Caretaker', function()
+            {
+                careTakers.click();
+                add.click();
+                firstName.sendKeys('Sandy');
+                lastName.sendKeys('muthu');
+                userName.sendKeys('sandy muthu');
+                password.sendKeys('Auto@123');
+                decrypt.click();
+                email.sendKeys('muthuswetha29@gmail.com')
+                gender.click();
+                timeZone.click();
+                chooseTimezone.click();
+                createCaretaker.click();
+                browser.sleep(5000);
+                search.sendKeys('Swetha');
+                click.click();
+            });
+    });
+})    
