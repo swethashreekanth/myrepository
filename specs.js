@@ -1,6 +1,6 @@
-describe('Login to cooey', function(){
+describe('Login to cooey portal', function(){
 
-    it('Testing login',function(){
+    it('Test login',function(){
     
          browser.get('https://test.portal.cooey.co.in/login');
          element(by.id('name')).sendKeys('test@cooey.co.in');
